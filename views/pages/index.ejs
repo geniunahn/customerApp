@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- 제이쿼리 -->
+    <script
+      src="https://code.jquery.com/jquery-3.6.2.min.js"
+      integrity="sha256-2krYZKh//PcchRtd+H+VyyQoZ/e3EcrkxhM8ycwASPA="
+      crossorigin="anonymous"
+    ></script>
+    <!-- 폰트 어썸 -->
+    <script
+      src="https://kit.fontawesome.com/67eff22c15.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- main css -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <!-- main.js -->
+    <script src="/js/main.js"></script>
+    <!-- seo 최적화 및 오픈그래프 입니다. -->
+    <meta property="og:image" content="./newyearscard.jpg" />
+    <meta property="og:site_name" content="고객관리앱" />
+    <meta property="og:title" content="고객관리앱" />
+    <meta property="og:description" content="고객관리앱" />
+    <meta property="og:type" content="website" />
+    <meta property="keywords" content="고객관리앱" />
+    <meta property="author" content="안정원" />
+    <meta name="description" property="og:description" content="고객관리앱" />
+  </head>
+  <body>
+    <div class="max_width_wrap">
+      <!-- 타이틀 제목 -->
+      <div class="title"><h1>고객정보관리</h1></div>
+      <!-- 검색창 -->
+      <div class="search">
+        <form action="/search" method="post">
+          <input
+            type="text"
+            name="name_search"
+            placeholder="고객명으로 검색"
+            required
+            maxlength="10"
+          />
+          <button type="submit">검색</button>
+        </form>
+      </div>
+      <!-- 총 회원수 -->
+      <p class="total">총 회원 수 : <%= posts.length %></p>
+      <!-- 목록 이름 -->
+      <div class="table_info_title">
+        <p class="info_title_1">ID</p>
+        <p class="info_title_2">이름</p>
+        <p class="info_title_3">나이</p>
+        <p class="info_title_4">성별</p>
+        <p class="info_title_5">연락처</p>
+        <p class="info_title_6"></p>
+      </div>
+      <!-- for 반복문 -->
+      <ul class="user_info">
+        <% for(let i = posts.length - 1; i >= 0; i--) { %>
+        <li>
+          <p class="info_1"><%= posts[i].id %></p>
+          <p class="info_2"><%= posts[i].name %></p>
+          <p class="info_3"><%= posts[i].age %></p>
+          <p class="info_4"><%= posts[i].sex %></p>
+          <p class="info_5"><%= posts[i].contact %></p>
+          <!-- delete 버튼 -->
+          <form
+            class="info_6"
+            action="/delete/<%= posts[i].id %> "
+            method="post"
+            onsubmit="let result = confirm('삭제하시겠습니까?');if(!result) return false;"
+          >
+            <button class="first_del_btn" type="submit">삭제</button>
+            <div class="delete_pwd_wrap">
+              <input
+                type="password"
+                name="delete_pwd"
+                placeholder="비밀번호"
+                required
+                maxlength="4"
+              />
+              <button type="submit">삭제</button>
+            </div>
+          </form>
+        </li>
+        <% } %>
+      </ul>
+
+      <!-- create -->
+      <div class="create_wrap">
+        <h1>정보입력</h1>
+        <form action="/create" method="post">
+          <!-- 이름 -->
+          <input
+            class="input_width100"
+            type="text"
+            name="name"
+            placeholder="이름 입력"
+            required
+            maxlength="10"
+          />
+          <!-- 나이 -->
+          <input
+            class="input_width100"
+            type="text"
+            name="age"
+            placeholder="나이 입력"
+            required
+            maxlength="10"
+          />
+          <!-- 연락처 -->
+          <input
+            class="input_width100"
+            type="text"
+            name="contact"
+            placeholder="연락처 입력"
+            maxlength="20"
+          />
+
+          <!-- 비밀번호 -->
+          <input
+            class="input_width100"
+            type="password"
+            name="password"
+            placeholder="비밀번호 4자리를 입력해주세요."
+            required
+            maxlength="4"
+          />
+          <!-- 성별 -->
+          <div class="sex_wrap">
+            <div class="sex_left">
+              <input
+                type="radio"
+                id="man_choice"
+                name="sex"
+                value="남자"
+                required
+              />
+              <label for="man_choice">남자</label>
+            </div>
+            <div class="sex_right">
+              <input
+                type="radio"
+                id="woman_choice"
+                name="sex"
+                value="여자"
+                required
+              />
+              <label for="woman_choice">여자</label>
+            </div>
+          </div>
+          <!-- 입력 완료 -->
+          <button class="create_btn" type="submit">입력 완료</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

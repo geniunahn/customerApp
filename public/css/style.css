@@ -1,0 +1,263 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+}
+
+.max_width_wrap {
+  max-width: 500px;
+  margin: 0 auto;
+  height: 100%;
+  padding: 20px 20px;
+}
+
+/* 메인 타이틀 */
+.title {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 20px 0;
+  color: #023586;
+}
+
+/* 검색창 */
+.search form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search input {
+  flex: 8;
+  border-radius: 10px;
+  outline: 0;
+  padding: 10px;
+  border: 1px solid #023586;
+}
+
+.search button {
+  flex: 2;
+  margin: 0 0 0 20px;
+  border-radius: 10px;
+  border: 1px solid #023586;
+  background-color: #023586;
+  outline: 0;
+  padding: 8.5px;
+  color: #fff;
+}
+
+.search form input::placeholder {
+  color: #023586;
+}
+
+/* total */
+
+.total {
+  margin: 20px 0;
+  color: #023586;
+}
+
+/* 테이블 제목 */
+
+.table_info_title {
+  border: 1px solid #023586;
+  background-color: #023586;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.table_info_title p {
+  color: #fff;
+}
+
+.info_title_1 {
+  flex: 1;
+}
+.info_title_2 {
+  flex: 1;
+}
+.info_title_3 {
+  flex: 1;
+}
+.info_title_4 {
+  flex: 1;
+}
+.info_title_5 {
+  flex: 2;
+}
+.info_title_6 {
+  flex: 2;
+}
+
+/* 정보 테이블 */
+
+.user_info {
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.user_info li {
+  display: flex;
+  align-items: center;
+  border: 1px solid #023586;
+  border-top: 0;
+  display: flex;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.user_info li p {
+  color: #023586;
+}
+
+.info_1 {
+  flex: 1;
+}
+.info_2 {
+  flex: 1;
+}
+.info_3 {
+  flex: 1;
+}
+.info_4 {
+  flex: 1;
+}
+.info_5 {
+  flex: 2;
+}
+.info_6 {
+  flex: 1.7;
+}
+
+.user_info button {
+  border-radius: 10px;
+  background-color: #023586;
+  border: 1px solid #023586;
+  outline: 0;
+  padding: 5px;
+  width: 50%;
+  color: #fff;
+}
+
+.delete_pwd_wrap input {
+  margin: 0 0 5px 0;
+  width: 70px;
+  border-radius: 10px;
+  border: 1px solid #023586;
+  outline: 0;
+  padding: 5px 7px;
+  text-align: center;
+}
+
+.delete_pwd_wrap input::placeholder {
+  color: #023586;
+}
+
+.delete_pwd_wrap {
+  flex-direction: column;
+  align-items: center;
+  display: none;
+}
+
+/* 버튼의 active 이벤트 */
+
+.first_del_btn.active {
+  display: none;
+}
+
+.delete_pwd_wrap.active {
+  display: flex;
+}
+
+/* 정보입력 */
+
+.input_width100 {
+  width: 100%;
+}
+
+.create_wrap h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0 10px;
+  color: #023586;
+}
+
+.create_wrap input {
+  margin: 10px 0;
+  border-radius: 10px;
+  outline: 0;
+  padding: 10px;
+  border: 1px solid #023586;
+}
+
+.create_wrap form input::placeholder {
+  color: #023586;
+}
+
+.sex_wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: #023586;
+}
+
+.sex_wrap div {
+  margin: 0 20px;
+}
+
+.sex_wrap div input {
+  margin: 0 10px 0 0;
+}
+
+.create_btn {
+  border-radius: 10px;
+  background-color: #023586;
+  border: 1px solid #023586;
+  outline: 0;
+  padding: 8px;
+  width: 100%;
+  color: #fff;
+  margin: 20px 0 0 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* search */
+
+.search_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: #023586;
+  border: 1px solid #023586;
+  outline: 0;
+  padding: 8px;
+  width: 100%;
+  color: #fff;
+  margin: 30px 0 0 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+input,
+button {
+  cursor: pointer;
+}
