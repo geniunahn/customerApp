@@ -81,6 +81,7 @@
                 name="delete_pwd"
                 placeholder="비밀번호"
                 required
+                minlength="4"
                 maxlength="4"
               />
               <button type="submit">삭제</button>
@@ -106,19 +107,20 @@
           <!-- 나이 -->
           <input
             class="input_width100"
-            type="text"
+            type="number"
             name="age"
             placeholder="나이 입력"
             required
-            maxlength="10"
+            maxlength="3"
           />
           <!-- 연락처 -->
           <input
             class="input_width100"
-            type="text"
+            type="tel"
             name="contact"
             placeholder="연락처 입력"
-            maxlength="20"
+            oninput="hypenTel(this)"
+            maxlength="13"
           />
 
           <!-- 비밀번호 -->
@@ -128,6 +130,7 @@
             name="password"
             placeholder="비밀번호 4자리를 입력해주세요."
             required
+            minlength="4"
             maxlength="4"
           />
           <!-- 성별 -->
@@ -158,5 +161,12 @@
         </form>
       </div>
     </div>
+    <script>
+      const hypenTel = (target) => {
+        target.value = target.value
+          .replace(/[^0-9]/g, "")
+          .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+      };
+    </script>
   </body>
 </html>
