@@ -55,48 +55,50 @@
       <% } %>
 
       <!-- table -->
-      <table>
-        <tr>
-          <th>ID</th>
-          <th>이름</th>
-          <th>나이</th>
-          <th>성별</th>
-          <th>연락처</th>
-          <th></th>
-        </tr>
-        <!-- for 반복문 -->
-        <% for(let i = userinfos.length - 1; i >= 0; i--) { %>
-        <tr>
-          <td class="first_td"><%= userinfos[i].id %></td>
-          <td><%= userinfos[i].name %></td>
-          <td><%= userinfos[i].age %></td>
-          <td><%= userinfos[i].sex %></td>
-          <td><%= userinfos[i].contact %></td>
-          <td class="last_td">
-            <form
-              class="info_6"
-              action="/delete/<%= userinfos[i].id %> "
-              method="post"
-              onsubmit="let result = confirm('삭제하시겠습니까?');if(!result) return false;"
-            >
-              <button class="first_del_btn" type="submit">삭제</button>
-              <div class="delete_pwd_wrap">
-                <input
-                  type="password"
-                  name="delete_pwd"
-                  placeholder="비밀번호"
-                  required
-                  minlength="4"
-                  maxlength="4"
-                />
-                <button type="submit">삭제</button>
-              </div>
-            </form>
-          </td>
-        </tr>
-        <% } %>
-        <!-- for 끝 -->
-      </table>
+      <div class="table_wrap">
+        <table>
+          <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>성별</th>
+            <th>연락처</th>
+            <th></th>
+          </tr>
+          <!-- for 반복문 -->
+          <% for(let i = userinfos.length - 1; i >= 0; i--) { %>
+          <tr>
+            <td class="first_td"><%= userinfos[i].id %></td>
+            <td><%= userinfos[i].name %></td>
+            <td><%= userinfos[i].age %></td>
+            <td><%= userinfos[i].sex %></td>
+            <td><%= userinfos[i].contact %></td>
+            <td class="last_td">
+              <form
+                class="info_6"
+                action="/delete/<%= userinfos[i].id %> "
+                method="post"
+                onsubmit="let result = confirm('삭제하시겠습니까?');if(!result) return false;"
+              >
+                <button class="first_del_btn" type="submit">삭제</button>
+                <div class="delete_pwd_wrap">
+                  <input
+                    type="password"
+                    name="delete_pwd"
+                    placeholder="비밀번호"
+                    required
+                    minlength="4"
+                    maxlength="4"
+                  />
+                  <button type="submit">삭제</button>
+                </div>
+              </form>
+            </td>
+          </tr>
+          <% } %>
+          <!-- for 끝 -->
+        </table>
+      </div>
 
       <!-- create -->
       <div class="create_wrap">

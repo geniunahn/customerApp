@@ -79,6 +79,11 @@ body {
 
 /* table */
 
+.table_wrap {
+  overflow-y: scroll;
+  height: 280px;
+}
+
 table {
   width: 100%;
   /* border: 1px solid #023586; */
@@ -111,7 +116,6 @@ th {
 td {
   text-align: center;
   padding: 10px 5px;
-  /* border: 1px solid #023586; */
 }
 
 table button {
