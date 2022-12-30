@@ -8,7 +8,7 @@ const sequelize = new Sequelize({
 });
 
 // Model(테이블) 생성
-const Posts = sequelize.define("Posts", {
+const Userinfos = sequelize.define("Userinfos", {
   // create (속성 정의)
   name: {
     type: DataTypes.STRING,
@@ -32,4 +32,4 @@ const Posts = sequelize.define("Posts", {
   },
 });
 
-module.exports = { sequelize, Posts };
+module.exports = { sequelize, Userinfos };

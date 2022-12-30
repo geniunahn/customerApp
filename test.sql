@@ -10,3 +10,5 @@
 -- SELECT * FROM Posts WHERE id = "5"
 
 -- SELECT * FROM Posts
+
+-- DROP TABLE Posts

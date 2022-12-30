@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const ejs = require("ejs");
-const { sequelize, Posts } = require("./database");
+const { sequelize, Userinfos } = require("./database");
 
 sequelize.sync().then(function (res) {
   console.log("데이터 연결 완료");
@@ -14,9 +14,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // home
 app.get("/", async function (req, res) {
-  const posts = await Posts.findAll();
+  const userinfos = await Userinfos.findAll();
   res.render("pages/index.ejs", {
-    posts,
+    userinfos,
   });
 });
 
@@ -27,7 +27,7 @@ app.post("/create", async function (req, res) {
   let sex = req.body.sex;
   let contact = req.body.contact;
   let password = req.body.password;
-  newPost = await Posts.create({
+  newUserinfos = await Userinfos.create({
     name: name,
     age: age,
     sex: sex,
@@ -41,13 +41,13 @@ app.post("/create", async function (req, res) {
 app.post("/delete/:id", async function (req, res) {
   let deletePwd = req.body.delete_pwd;
   let pwdNum = req.params.id;
-  let select = await Posts.findAll({
+  let select = await Userinfos.findAll({
     where: {
       id: pwdNum,
     },
   });
   if (deletePwd == select[0].passward) {
-    await Posts.destroy({
+    await Userinfos.destroy({
       where: {
         id: req.params.id,
       },
@@ -61,25 +61,17 @@ app.post("/delete/:id", async function (req, res) {
 // search
 app.post("/search", async function (req, res) {
   let nameSearch = req.body.name_search;
-  let select = await Posts.findAll({
+  let userinfos = await Userinfos.findAll({
     where: {
       name: nameSearch,
     },
   });
 
-  let searchId = select[0].id;
-  let searchName = select[0].name;
-  let searchAge = select[0].age;
-  let searchSex = select[0].sex;
-  let searchContact = select[0].contact;
-
-  res.render("pages/search.ejs", {
-    searchId,
-    searchName,
-    searchAge,
-    searchSex,
-    searchContact,
-  });
+  if (userinfos !== null) {
+    res.render("pages/index.ejs", {
+      userinfos: userinfos,
+    });
+  }
 });
 
 const port = 3005;
